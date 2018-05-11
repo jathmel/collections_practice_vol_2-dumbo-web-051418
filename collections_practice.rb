@@ -34,15 +34,9 @@ def count_elements(collection)
   result.uniq
 end
 
-def merge_data(keys, data)
-  keys.each do |el|
-    data.each do |data|
-      # binding.pry
-      break
-    end
-  end 
-  data
-end
+# def merge_data(keys, data)
+  
+# end
 
 def find_cool(collection)
   collection.select {|hash| hash.value?('cool')}
@@ -57,4 +51,26 @@ def organize_schools(collection)
     end
   end
   organized_schools
+end
+
+
+
+
+
+
+
+
+def merge_data(keys, values)
+  container = []
+  keys.each do |person_name|
+    name = person_name[:first_name]
+    values.each do |person_data|
+      if person_data[name]
+        merged_person = person_data[name]
+        merged_person[:first_name] = name
+        container << merged_person
+      end
+    end
+  end
+  container
 end
